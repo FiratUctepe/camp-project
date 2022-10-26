@@ -6,11 +6,11 @@ import ProductService from "../services/ProductService";
 
 export default function ProductList() {
 
-  const [products, setproducts] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     let productService = new ProductService();
-    productService.getProduct().then(result=>setproducts(result.data))
+    productService.getProduct().then(result=>setProducts(result.data))
     },[]
   )
   
@@ -33,7 +33,7 @@ export default function ProductList() {
             products.map(product => (
               <Table.Row key={product.id}>
                 <Table.Cell>
-                  <Link to ={`/products/${product.id}`}>{product.productName}</Link>
+                  <Link to ={`/products/${product.productName}`}>{product.productName}</Link>
                 </Table.Cell>
                 <Table.Cell>{product.unitPrice}</Table.Cell>
                 <Table.Cell>{product.unitsInStock}</Table.Cell>
